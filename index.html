@@ -15,6 +15,7 @@
       text-align: center;
     }
 
+    /* Hide inputs */
     input[type="checkbox"],
     input[type="radio"] {
       display: none;
@@ -35,75 +36,76 @@
       color: white;
     }
 
-    label[for="life"] {
-      background-color: #4a90e2;
-      color: white;
-      display: none;
-    }
-
+    label[for="life"],
     label[for="thought"] {
-      background-color: #ffc0cb;
-      color: white;
       display: none;
     }
 
     #message,
     #lifeText,
-    #thoughtText {
-      display: none;
-      max-width: 400px;
-      margin-top: 20px;
-      font-size: 18px;
-    }
-
-    /* Hide "Open Box" button after click */
-    #open:checked + label[for="open"] {
+    #thoughtText,
+    .afterOpen {
       display: none;
     }
 
-    /* Show green message after clicking "Open Box" */
+    /* ✅ SHOW message + extra buttons */
+    #open:checked ~ label[for="open"] {
+      display: none;
+    }
+
     #open:checked ~ #message {
       display: block;
       color: green;
+      margin-top: 20px;
+      max-width: 400px;
     }
 
-    /* Show new buttons after open */
-    #open:checked ~ label[for="life"],
-    #open:checked ~ label[for="thought"] {
+    #open:checked ~ .afterOpen {
+      display: block;
+    }
+
+    /* ✅ Show extra buttons after open */
+    #open:checked ~ .afterOpen label[for="life"],
+    #open:checked ~ .afterOpen label[for="thought"] {
       display: inline-block;
     }
 
-    /* Show life text if selected */
+    /* ✅ Life update appears */
     #life:checked ~ #lifeText {
       display: block;
       color: #4a90e2;
+      margin-top: 10px;
     }
 
-    /* Show thought text if selected */
+    /* ✅ Thought update appears */
     #thought:checked ~ #thoughtText {
       display: block;
       color: #d6336c;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Main control: Open Box -->
+  <!-- Hidden checkbox for open -->
   <input type="checkbox" id="open">
   <label class="button" for="open">Open Box</label>
 
-  <!-- Hidden radio buttons -->
-  <input type="radio" name="view" id="life">
-  <input type="radio" name="view" id="thought">
-
-  <!-- Appears after clicking Open -->
+  <!-- Green message -->
   <div id="message">
     Heyy pretty gurl :3 This poor lil soul couldn't text you yesterday because of some pigs called 'relatives'. I am sorry bae pweasee forgivee me :(
   </div>
 
-  <label class="button" for="life">View Ian's Recent Life Update</label>
-  <label class="button" for="thought">View Ian's Recent Thoughts</label>
+  <!-- Radio options only after open -->
+  <div class="afterOpen">
+    <input type="radio" name="option" id="life">
+    <label class="button" for="life">View Ian's Recent Life Update</label>
 
+    <input type="radio" name="option" id="thought">
+    <label class="button" for="thought">View Ian's Recent Thoughts</label>
+  </div>
+
+  <!-- Texts -->
   <div id="lifeText">
     I have been enjoying my time here recently :3 visiting places, roaming, chit-chatting with cousins etc, gawd knows when will I come back again and honestly, even if I do then well most likely I won't be staying here for long cuz of studies, so while my cousins pestering me to roam/talk/watch movies etc with them isn't really something I want, but I kinda vibe with it ngl. I hope you understand that am trying my best to be present. :)
   </div>
@@ -114,6 +116,3 @@
 
 </body>
 </html>
-
-
-

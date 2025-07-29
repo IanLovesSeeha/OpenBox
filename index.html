@@ -7,78 +7,109 @@
     body {
       background-color: #fff0f5;
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       text-align: center;
+      padding-top: 100px;
     }
 
-    input[type="checkbox"] {
+    input[type="checkbox"],
+    input[type="radio"] {
       display: none;
     }
 
-    .button {
-      padding: 10px 20px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      margin: 10px;
+    label {
       cursor: pointer;
     }
 
-    label[for="toggle"] {
+    .button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 6px;
+      margin: 10px;
+      display: inline-block;
+      border: none;
+      text-decoration: none;
+    }
+
+    #openBtn {
       background-color: #ffb6c1;
       color: white;
     }
 
-    #message,
-    .extra-buttons {
+    #greenText,
+    .extraBtns,
+    #lifeText,
+    #thoughtText {
       display: none;
     }
 
-    #toggle:checked ~ label[for="toggle"] {
-      display: none;
-    }
-
-    #toggle:checked ~ #message {
+    #open:checked ~ #greenText {
       display: block;
       color: green;
       font-size: 18px;
-      margin-top: 20px;
+      margin-top: 30px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    #toggle:checked ~ .extra-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
+    #open:checked ~ label[for="open"] {
+      display: none;
     }
 
-    .extra-buttons .button {
-      background-color: #ffe4e1;
-      color: #333;
+    #open:checked ~ .extraBtns {
+      display: block;
+    }
+
+    .blue-btn {
+      background-color: #4da6ff;
+      color: white;
+    }
+
+    .pink-btn {
+      background-color: #ffcccc;
+      color: black;
+    }
+
+    #life:checked ~ #lifeText {
+      display: block;
+      color: #4a90e2;
+      margin-top: 15px;
+    }
+
+    #thought:checked ~ #thoughtText {
+      display: block;
+      color: #d6336c;
+      margin-top: 15px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Hidden checkbox to control the toggle -->
-  <input type="checkbox" id="toggle">
+  <!-- Open Box -->
+  <input type="checkbox" id="open">
+  <label for="open" class="button" id="openBtn">Open Box</label>
 
-  <!-- Open Box button -->
-  <label class="button" for="toggle">Open Box</label>
-
-  <!-- Message that appears after clicking -->
-  <div id="message">
-    You are pretty and ik it 💚
+  <!-- Original green message -->
+  <div id="greenText">
+    Heyy pretty gurl :3 This poor lil soul couldn't text you yesterday because of some pigs called 'relatives'. I am sorry bae pweasee forgivee me :(
   </div>
 
-  <!-- Extra buttons that appear after clicking -->
-  <div class="extra-buttons">
-    <button class="button">View Ian's Recent Life Update</button>
-    <button class="button">View Ian's Recent Thoughts</button>
+  <!-- Extra buttons -->
+  <div class="extraBtns">
+    <input type="radio" name="extra" id="life">
+    <label for="life" class="button blue-btn">View Ian's Recent Life Update</label>
+
+    <input type="radio" name="extra" id="thought">
+    <label for="thought" class="button pink-btn">View Ian's Recent Thoughts</label>
+  </div>
+
+  <!-- Responses -->
+  <div id="lifeText">
+    I have been enjoying my time here recently :3 visiting places, roaming, chit-chatting with cousins etc, gawd knows when will I come back again and honestly, even if I do then well most likely I won't be staying here for long cuz of studies, so while my cousins pestering me to roam/talk/watch movies etc with them isn't really something I want, but I kinda vibe with it ngl. I hope you understand that am trying my best to be present :)
+  </div>
+
+  <div id="thoughtText">
+    I wanna talk and yapp with you a lot but honestly, too caught up in dodging judgemental eyes and like- even as of now, my cousin bro is doomscrolling beside me because I kinda am ignoring him in a sense?
   </div>
 
 </body>

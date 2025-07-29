@@ -7,8 +7,12 @@
     body {
       background-color: #fff0f5;
       font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
-      padding-top: 100px;
     }
 
     input[type="checkbox"],
@@ -16,63 +20,58 @@
       display: none;
     }
 
-    label {
-      cursor: pointer;
-    }
-
     .button {
-      padding: 12px 25px;
-      font-size: 16px;
-      border-radius: 6px;
-      margin: 10px;
-      display: inline-block;
+      padding: 10px 20px;
+      font-size: 18px;
       border: none;
-      text-decoration: none;
+      border-radius: 8px;
+      margin: 10px;
+      cursor: pointer;
+      display: inline-block;
     }
 
-    #openBtn {
+    label[for="open"] {
       background-color: #ffb6c1;
       color: white;
     }
 
-    #greenText,
-    .extraBtns,
-    #lifeText,
-    #thoughtText {
+    label[for="life"] {
+      background-color: #add8e6; /* light blue */
+      color: black;
       display: none;
     }
 
-    #open:checked ~ #greenText {
-      display: block;
-      color: green;
-      font-size: 18px;
-      margin-top: 30px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+    label[for="thought"] {
+      background-color: #ffb6c1; /* light pink */
+      color: white;
+      display: none;
+    }
+
+    #message,
+    #lifeText,
+    #thoughtText {
+      display: none;
+      max-width: 400px;
     }
 
     #open:checked ~ label[for="open"] {
       display: none;
     }
 
-    #open:checked ~ .extraBtns {
+    #open:checked ~ #message {
       display: block;
+      color: green;
+      margin-top: 20px;
     }
 
-    .blue-btn {
-      background-color: #4da6ff;
-      color: white;
-    }
-
-    .pink-btn {
-      background-color: #ffcccc;
-      color: black;
+    #open:checked ~ label[for="life"],
+    #open:checked ~ label[for="thought"] {
+      display: inline-block;
     }
 
     #life:checked ~ #lifeText {
       display: block;
-      color: #4a90e2;
+      color: #4aa3df;
       margin-top: 15px;
     }
 
@@ -85,25 +84,19 @@
 </head>
 <body>
 
-  <!-- Open Box -->
   <input type="checkbox" id="open">
-  <label for="open" class="button" id="openBtn">Open Box</label>
+  <label class="button" for="open">Open Box</label>
 
-  <!-- Original green message -->
-  <div id="greenText">
+  <div id="message">
     Heyy pretty gurl :3 This poor lil soul couldn't text you yesterday because of some pigs called 'relatives'. I am sorry bae pweasee forgivee me :(
   </div>
 
-  <!-- Extra buttons -->
-  <div class="extraBtns">
-    <input type="radio" name="extra" id="life">
-    <label for="life" class="button blue-btn">View Ian's Recent Life Update</label>
+  <input type="radio" name="response" id="life">
+  <label class="button" for="life">View Ian's Recent Life Update</label>
 
-    <input type="radio" name="extra" id="thought">
-    <label for="thought" class="button pink-btn">View Ian's Recent Thoughts</label>
-  </div>
+  <input type="radio" name="response" id="thought">
+  <label class="button" for="thought">View Ian's Recent Thoughts</label>
 
-  <!-- Responses -->
   <div id="lifeText">
     I have been enjoying my time here recently :3 visiting places, roaming, chit-chatting with cousins etc, gawd knows when will I come back again and honestly, even if I do then well most likely I won't be staying here for long cuz of studies, so while my cousins pestering me to roam/talk/watch movies etc with them isn't really something I want, but I kinda vibe with it ngl. I hope you understand that am trying my best to be present :)
   </div>

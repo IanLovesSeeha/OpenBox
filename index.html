@@ -29,16 +29,21 @@
       color: green;
       font-size: 20px;
       display: none;
+      text-align: center;
+      max-width: 300px;
     }
   </style>
 </head>
 <body>
-  <button onclick="showMessage()">Open Box</button>
-  <div id="message">Heyy pretty gurl :3 This poor lil soul couldn't text you yesterday because of some pigs called 'relatives' I am sorry bae pweasee. </div>
+  <button id="openBtn" onclick="showMessage()">Open Box</button>
+  <div id="message">
+    Heyy pretty gurl :3 This poor lil soul couldn't text you yesterday because of some pigs called 'relatives' 🐷💀 I am sorry bae pweasee. 💌
+  </div>
 
   <script>
     function showMessage() {
       document.getElementById("message").style.display = "block";
+      document.getElementById("openBtn").style.display = "none";
     }
   </script>
 </body>

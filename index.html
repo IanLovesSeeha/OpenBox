@@ -8,14 +8,13 @@
       background-color: #fff0f5;
       font-family: Arial, sans-serif;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
     }
 
-    /* Hide inputs */
     input[type="checkbox"],
     input[type="radio"] {
       display: none;
@@ -39,16 +38,17 @@
     label[for="life"],
     label[for="thought"] {
       display: none;
+      background-color: #ffe4e1;
+      color: black;
     }
 
     #message,
     #lifeText,
-    #thoughtText,
-    .afterOpen {
+    #thoughtText {
       display: none;
+      max-width: 400px;
     }
 
-    /* ✅ SHOW message + extra buttons */
     #open:checked ~ label[for="open"] {
       display: none;
     }
@@ -57,27 +57,19 @@
       display: block;
       color: green;
       margin-top: 20px;
-      max-width: 400px;
     }
 
-    #open:checked ~ .afterOpen {
-      display: block;
-    }
-
-    /* ✅ Show extra buttons after open */
-    #open:checked ~ .afterOpen label[for="life"],
-    #open:checked ~ .afterOpen label[for="thought"] {
+    #open:checked ~ label[for="life"],
+    #open:checked ~ label[for="thought"] {
       display: inline-block;
     }
 
-    /* ✅ Life update appears */
     #life:checked ~ #lifeText {
       display: block;
       color: #4a90e2;
       margin-top: 10px;
     }
 
-    /* ✅ Thought update appears */
     #thought:checked ~ #thoughtText {
       display: block;
       color: #d6336c;
@@ -87,32 +79,27 @@
 </head>
 <body>
 
-  <!-- Hidden checkbox for open -->
   <input type="checkbox" id="open">
   <label class="button" for="open">Open Box</label>
 
-  <!-- Green message -->
+  <input type="radio" name="option" id="life">
+  <input type="radio" name="option" id="thought">
+
   <div id="message">
     Heyy pretty gurl :3 This poor lil soul couldn't text you yesterday because of some pigs called 'relatives'. I am sorry bae pweasee forgivee me :(
   </div>
 
-  <!-- Radio options only after open -->
-  <div class="afterOpen">
-    <input type="radio" name="option" id="life">
-    <label class="button" for="life">View Ian's Recent Life Update</label>
+  <label class="button" for="life">View Ian's Recent Life Update</label>
+  <label class="button" for="thought">View Ian's Recent Thoughts</label>
 
-    <input type="radio" name="option" id="thought">
-    <label class="button" for="thought">View Ian's Recent Thoughts</label>
-  </div>
-
-  <!-- Texts -->
   <div id="lifeText">
-    I have been enjoying my time here recently :3 visiting places, roaming, chit-chatting with cousins etc, gawd knows when will I come back again and honestly, even if I do then well most likely I won't be staying here for long cuz of studies, so while my cousins pestering me to roam/talk/watch movies etc with them isn't really something I want, but I kinda vibe with it ngl. I hope you understand that am trying my best to be present :)
+    I have been enjoying my time here recently :3 visiting places, roaming, chit-chatting with cousins etc, gawd knows when will I come back again...
   </div>
 
   <div id="thoughtText">
-      I wanna talk and yapp with you a lot but honestly, too caught up in dodging judgemental eyes and like- even as of now, my cousin bro is doomscrolling beside me because I kinda am ignoring him in a sense?
+    I wanna talk and yapp with you a lot but honestly, too caught up in dodging judgemental eyes and like- even as of now, my cousin bro is doomscrolling beside me...
   </div>
 
 </body>
 </html>
+

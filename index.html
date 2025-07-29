@@ -15,7 +15,6 @@
       text-align: center;
     }
 
-    /* Hide checkboxes */
     input[type="checkbox"],
     input[type="radio"] {
       display: none;
@@ -31,20 +30,17 @@
       display: inline-block;
     }
 
-    /* Initial button */
     label[for="open"] {
       background-color: #ffb6c1;
       color: white;
     }
 
-    /* Life button */
     label[for="life"] {
       background-color: #4a90e2;
       color: white;
       display: none;
     }
 
-    /* Thought button */
     label[for="thought"] {
       background-color: #ffc0cb;
       color: white;
@@ -55,28 +51,35 @@
     #lifeText,
     #thoughtText {
       display: none;
-      max-width: 300px;
+      max-width: 400px;
       margin-top: 20px;
-      font-size: 20px;
+      font-size: 18px;
     }
 
-    /* Show green message + buttons when "open" is checked */
+    /* Hide "Open Box" button after click */
+    #open:checked + label[for="open"] {
+      display: none;
+    }
+
+    /* Show green message after clicking "Open Box" */
     #open:checked ~ #message {
       display: block;
       color: green;
     }
 
-    #open:checked ~ .afterOpen {
+    /* Show new buttons after open */
+    #open:checked ~ label[for="life"],
+    #open:checked ~ label[for="thought"] {
       display: inline-block;
     }
 
-    /* Show life update when "life" is checked */
+    /* Show life text if selected */
     #life:checked ~ #lifeText {
       display: block;
       color: #4a90e2;
     }
 
-    /* Show thoughts when "thought" is checked */
+    /* Show thought text if selected */
     #thought:checked ~ #thoughtText {
       display: block;
       color: #d6336c;
@@ -85,26 +88,24 @@
 </head>
 <body>
 
-  <!-- Hidden checkbox to trigger everything -->
+  <!-- Main control: Open Box -->
   <input type="checkbox" id="open">
   <label class="button" for="open">Open Box</label>
 
+  <!-- Hidden radio buttons -->
+  <input type="radio" name="view" id="life">
+  <input type="radio" name="view" id="thought">
+
+  <!-- Appears after clicking Open -->
   <div id="message">
     Heyy pretty gurl :3 This poor lil soul couldn't text you yesterday because of some pigs called 'relatives'. I am sorry bae pweasee forgivee me :(
   </div>
 
-  <!-- Buttons appear only after "open" -->
-  <div class="afterOpen">
-    <input type="radio" name="option" id="life">
-    <label class="button" for="life">View Ian's Recent Life Update</label>
+  <label class="button" for="life">View Ian's Recent Life Update</label>
+  <label class="button" for="thought">View Ian's Recent Thoughts</label>
 
-    <input type="radio" name="option" id="thought">
-    <label class="button" for="thought">View Ian's Recent Thoughts</label>
-  </div>
-
-  <!-- Content based on choice -->
   <div id="lifeText">
-    I have been enjoying my time here recently :3 visiting places, roaming, chit-chatting with cousins etc, gawd knows when will I come back again and honestly, even if I do then well most likely I won't be staying here for long cuz of studies, so while my cousins pestering me to roam/talk/watch movies etc with them isn't really something I want, but I kinda vibe with it ngl. I hope you understand that am trying my best to be present :)
+    I have been enjoying my time here recently :3 visiting places, roaming, chit-chatting with cousins etc, gawd knows when will I come back again and honestly, even if I do then well most likely I won't be staying here for long cuz of studies, so while my cousins pestering me to roam/talk/watch movies etc with them isn't really something I want, but I kinda vibe with it ngl. I hope you understand that am trying my best to be present. :)
   </div>
 
   <div id="thoughtText">
@@ -113,5 +114,6 @@
 
 </body>
 </html>
+
 
 

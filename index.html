@@ -13,10 +13,10 @@
       justify-content: center;
       height: 100vh;
       text-align: center;
+      margin: 0;
     }
 
-    input[type="checkbox"],
-    input[type="radio"] {
+    input[type="checkbox"] {
       display: none;
     }
 
@@ -27,79 +27,83 @@
       border-radius: 8px;
       margin: 10px;
       cursor: pointer;
-      display: inline-block;
     }
 
-    label[for="open"] {
+    label[for="toggle"] {
       background-color: #ffb6c1;
       color: white;
     }
 
-    label[for="life"],
-    label[for="thought"] {
-      display: none;
-      background-color: #ffe4e1;
-      color: black;
-    }
-
     #message,
-    #lifeText,
-    #thoughtText {
-      display: none;
-      max-width: 400px;
-    }
-
-    #open:checked ~ label[for="open"] {
+    .extra-buttons,
+    .response {
       display: none;
     }
 
-    #open:checked ~ #message {
+    /* Hide button once checkbox is checked */
+    #toggle:checked ~ label[for="toggle"] {
+      display: none;
+    }
+
+    /* Show green apology */
+    #toggle:checked ~ #message {
       display: block;
       color: green;
+      font-size: 18px;
       margin-top: 20px;
     }
 
-    #open:checked ~ label[for="life"],
-    #open:checked ~ label[for="thought"] {
-      display: inline-block;
+    /* Show both extra buttons */
+    #toggle:checked ~ .extra-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
     }
 
-    #life:checked ~ #lifeText {
+    /* Show response paragraph */
+    #toggle:checked ~ .response {
       display: block;
-      color: #4a90e2;
-      margin-top: 10px;
+      color: #db3e6f;
+      margin-top: 30px;
+      font-size: 16px;
+      max-width: 400px;
     }
 
-    #thought:checked ~ #thoughtText {
-      display: block;
-      color: #d6336c;
-      margin-top: 10px;
+    .extra-buttons .life-button {
+      background-color: #4d88ff; /* BLUE button */
+      color: white;
+    }
+
+    .extra-buttons .thoughts-button {
+      background-color: #ffe4e1; /* PINK button */
+      color: #333;
     }
   </style>
 </head>
 <body>
 
-  <input type="checkbox" id="open">
-  <label class="button" for="open">Open Box</label>
+  <!-- Control toggle -->
+  <input type="checkbox" id="toggle">
 
-  <input type="radio" name="option" id="life">
-  <input type="radio" name="option" id="thought">
+  <!-- Open box button -->
+  <label class="button" for="toggle">Open Box</label>
 
+  <!-- Green apology message -->
   <div id="message">
     Heyy pretty gurl :3 This poor lil soul couldn't text you yesterday because of some pigs called 'relatives'. I am sorry bae pweasee forgivee me :(
   </div>
 
-  <label class="button" for="life">View Ian's Recent Life Update</label>
-  <label class="button" for="thought">View Ian's Recent Thoughts</label>
-
-  <div id="lifeText">
-    I have been enjoying my time here recently :3 visiting places, roaming, chit-chatting with cousins etc, gawd knows when will I come back again...
+  <!-- Extra buttons shown after click -->
+  <div class="extra-buttons">
+    <button class="button life-button">View Ian's Recent Life Update</button>
+    <button class="button thoughts-button">View Ian's Recent Thoughts</button>
   </div>
 
-  <div id="thoughtText">
-    I wanna talk and yapp with you a lot but honestly, too caught up in dodging judgemental eyes and like- even as of now, my cousin bro is doomscrolling beside me...
+  <!-- Final response -->
+  <div class="response">
+    I wanna talk and yapp with you a lot but honestly, too caught up in dodging judgemental eyes and like- even as of now, my cousin bro bro is doomscrolling beside me...
   </div>
 
 </body>
 </html>
-

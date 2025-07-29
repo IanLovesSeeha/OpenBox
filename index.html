@@ -22,6 +22,7 @@
       border-radius: 8px;
       cursor: pointer;
       margin-top: 10px;
+      transition: all 0.2s ease;
     }
 
     #openBtn {
@@ -29,23 +30,28 @@
       color: white;
     }
 
+    #lifeBtn,
+    #thoughtBtn {
+      display: none;
+    }
+
     #lifeBtn {
       background-color: #4a90e2;
       color: white;
-      display: none;
     }
 
     #thoughtBtn {
       background-color: #ffc0cb;
       color: white;
-      display: none;
     }
 
-    #message, #extraMessage {
+    #message,
+    #extraMessage {
       margin-top: 20px;
       font-size: 20px;
       display: none;
-      max-width: 300px;
+      max-width: 320px;
+      line-height: 1.5;
     }
 
     .life {
@@ -82,7 +88,10 @@
   <script>
     function showMessage() {
       document.getElementById("message").style.display = "block";
+      document.getElementById("message").classList.add("fade-in");
+
       document.getElementById("openBtn").style.display = "none";
+
       document.getElementById("lifeBtn").style.display = "inline-block";
       document.getElementById("thoughtBtn").style.display = "inline-block";
     }
@@ -100,7 +109,7 @@
       const extra = document.getElementById("extraMessage");
       extra.style.display = "block";
       extra.classList.remove("life", "fade-in");
-      void extra.offsetWidth; // reset animation
+      void extra.offsetWidth;
       extra.classList.add("thought", "fade-in");
       extra.textContent = "Thought of the day: Maybe the reason I feel too much is ‘cause I care too deep. Or maybe I’m just built that way.";
     }
@@ -108,3 +117,5 @@
 
 </body>
 </html>
+
+

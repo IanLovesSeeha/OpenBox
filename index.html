@@ -6,45 +6,105 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #fff0f5; /* light pink background */
+      background-color: #fff0f5;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       flex-direction: column;
+      text-align: center;
     }
 
     button {
-      background-color: #ffb6c1; /* light pink */
-      color: white;
       border: none;
       padding: 10px 20px;
       font-size: 18px;
       border-radius: 8px;
       cursor: pointer;
+      margin-top: 10px;
     }
 
-    #message {
+    #openBtn {
+      background-color: #ffb6c1;
+      color: white;
+    }
+
+    #lifeBtn {
+      background-color: #4a90e2;
+      color: white;
+      display: none;
+    }
+
+    #thoughtBtn {
+      background-color: #ffc0cb;
+      color: white;
+      display: none;
+    }
+
+    #message, #extraMessage {
       margin-top: 20px;
-      color: green;
       font-size: 20px;
       display: none;
-      text-align: center;
       max-width: 300px;
+    }
+
+    .life {
+      color: #4a90e2;
+    }
+
+    .thought {
+      color: #d6336c;
+    }
+
+    .fade-in {
+      animation: fade 0.5s ease-in-out;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
+
   <button id="openBtn" onclick="showMessage()">Open Box</button>
+
   <div id="message">
     Heyy pretty gurl :3 This poor lil soul couldn't text you yesterday because of some pigs called 'relatives'. I am sorry bae pweasee forgivee me :(
   </div>
+
+  <button id="lifeBtn" onclick="showLife()">View Ian's Recent Life Update</button>
+  <button id="thoughtBtn" onclick="showThought()">View Ian's Recent Thoughts</button>
+
+  <div id="extraMessage"></div>
 
   <script>
     function showMessage() {
       document.getElementById("message").style.display = "block";
       document.getElementById("openBtn").style.display = "none";
+      document.getElementById("lifeBtn").style.display = "inline-block";
+      document.getElementById("thoughtBtn").style.display = "inline-block";
+    }
+
+    function showLife() {
+      const extra = document.getElementById("extraMessage");
+      extra.style.display = "block";
+      extra.classList.remove("thought", "fade-in");
+      void extra.offsetWidth; // reset animation
+      extra.classList.add("life", "fade-in");
+      extra.textContent = "Life’s been hectic, ngl. A bit overwhelmed but still holding it down. Trying my best to be present. :)";
+    }
+
+    function showThought() {
+      const extra = document.getElementById("extraMessage");
+      extra.style.display = "block";
+      extra.classList.remove("life", "fade-in");
+      void extra.offsetWidth; // reset animation
+      extra.classList.add("thought", "fade-in");
+      extra.textContent = "Thought of the day: Maybe the reason I feel too much is ‘cause I care too deep. Or maybe I’m just built that way.";
     }
   </script>
+
 </body>
 </html>

@@ -10,11 +10,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       height: 100vh;
-      padding-top: 60px;
       text-align: center;
-      margin: 0;
     }
 
     input[type="checkbox"] {
@@ -28,7 +26,6 @@
       border-radius: 8px;
       margin: 10px;
       cursor: pointer;
-      transition: 0.2s ease;
     }
 
     label[for="toggle"] {
@@ -37,10 +34,7 @@
     }
 
     #message,
-    .extra-buttons,
-    .response,
-    #lifeUpdateText,
-    #thoughtsText {
+    .extra-buttons {
       display: none;
     }
 
@@ -62,79 +56,29 @@
       margin-top: 20px;
     }
 
-    #toggle:checked ~ .response {
-      display: block;
-      color: #db3e6f;
-      margin-top: 30px;
-      font-size: 16px;
-      max-width: 400px;
-    }
-
-    .extra-buttons label {
-      display: inline-block;
-      text-align: center;
-      width: fit-content;
-    }
-
-    .life-button {
-      background-color: #4d88ff;
-      color: white;
-    }
-
-    .thoughts-button {
+    .extra-buttons .button {
       background-color: #ffe4e1;
       color: #333;
     }
-
-    /* Reveal hidden text when buttons are clicked */
-    #lifeToggle:checked ~ #lifeUpdateText {
-      display: block;
-      margin-top: 10px;
-      color: #4d88ff;
-    }
-
-    #thoughtsToggle:checked ~ #thoughtsText {
-      display: block;
-      margin-top: 10px;
-      color: #e75480;
-    }
-
   </style>
 </head>
 <body>
 
-  <!-- Main toggle -->
+  <!-- Hidden checkbox to control the toggle -->
   <input type="checkbox" id="toggle">
+
+  <!-- Open Box button -->
   <label class="button" for="toggle">Open Box</label>
 
-  <!-- Message -->
+  <!-- Message that appears after clicking -->
   <div id="message">
-    Heyy pretty gurl :3 This poor lil soul couldn't text you yesterday because of some pigs called 'relatives'. I am sorry bae pweasee forgivee me :(
+    You are pretty and ik it 💚
   </div>
 
-  <!-- Extra buttons -->
+  <!-- Extra buttons that appear after clicking -->
   <div class="extra-buttons">
-    <!-- Life update toggle -->
-    <input type="checkbox" id="lifeToggle">
-    <label class="button life-button" for="lifeToggle">View Ian's Recent Life Update</label>
-
-    <!-- Thoughts toggle -->
-    <input type="checkbox" id="thoughtsToggle">
-    <label class="button thoughts-button" for="thoughtsToggle">View Ian's Recent Thoughts</label>
-  </div>
-
-  <!-- Response -->
-  <div class="response">
-    I wanna talk and yapp with you a lot but honestly, too caught up in dodging judgemental eyes and like- even as of now, my cousin bro bro is doomscrolling beside me...
-  </div>
-
-  <!-- Hidden reveals -->
-  <div id="lifeUpdateText">
-     I finally cleaned my closet, touched grass, and survived my relatives' tantrums.
-  </div>
-
-  <div id="thoughtsText">
-    Been thinking about you a lot lately. You’re lowkey the reason I smile at my screen sometimes.
+    <button class="button">View Ian's Recent Life Update</button>
+    <button class="button">View Ian's Recent Thoughts</button>
   </div>
 
 </body>
